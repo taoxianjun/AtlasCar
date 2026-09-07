@@ -46,6 +46,9 @@ python/logs/
 .DS_Store
 Thumbs.db
 
+# ---------- WorkBuddy 工作数据（记忆日志、临时产物）----------
+.workbuddy/
+
 # ---------- 超大原始截图（各 9.6MB，未被 md 引用，需要可自行恢复）----------
 基于ESP32的智能小车控制/image/image-20221220182643963.png
 基于ESP32的智能小车控制/image/image-20221220182648920.png
