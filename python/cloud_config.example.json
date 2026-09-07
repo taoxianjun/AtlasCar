@@ -1,0 +1,24 @@
+{
+  "_说明": "鉴权二选一：①填 password（直接复制控制台「MQTT连接参数」里的 Password，sign_type=0 时长期有效，secret 可留空）；②或填 secret（代码按 HMAC-SHA256(timestamp, secret) 动态生成）。host/port 同样取自控制台该页。",
+  "device_id": "控制台 MQTT连接参数 里的 Username（即设备ID）",
+  "password": "控制台 MQTT连接参数 里的 Password（静态密码）",
+  "secret": "（可选）设备密钥，仅在不用 password 时填，用于动态生成密码",
+  "client_id": "（可选）留空则代码自动生成 device_id_0_signType_时间戳",
+  "host": "控制台 MQTT连接参数 里的 hostname，形如 <你的实例ID>.st1.iotda-device.cn-north-4.myhuaweicloud.com",
+  "port": 8883,
+  "ca_cert": "（可选）华为云 IoTDA CA 根证书路径；8883 可留空走系统默认 CA",
+  "sign_type": 0,
+  "command_timeout": 3.0,
+  "report_interval": 10.0,
+  "dataset_root": "dataset",
+
+  "_commands": {
+    "move":       "paras: {action, speed?, duration?}  action∈forward/backward/turn_left/turn_right/spin_left/spin_right/shift_left/shift_right/turn_around/stop/capture",
+    "key":        "paras: {value}  直接下发 Manual 场景按键，如 'c' 拍照、'space' 刹车",
+    "set_mode":   "paras: {mode}   manual/auto/tracking/idle",
+    "set_speed":  "paras: {speed}  25~60",
+    "capture":    "paras: {label?, count?, interval?}  远程采集数据集照片，按 dataset_root/<label>/NNNNN.jpg 存储",
+    "emergency_stop": "paras: {}  刹停并清空所有场景",
+    "heartbeat":  "paras: {}  探活"
+  }
+}

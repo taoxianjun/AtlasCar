@@ -1,0 +1,19 @@
+common:
+  dataset_path: ./dataset
+  output_dir: ./output
+  width: 320
+  height: 180
+
+train:
+  resume: False  # re-labeled 2026-08-26 with tightened hsv -> fresh train (no old-label bias)
+  # device: "auto"  -> use GPU if CUDA available, else fall back to CPU (recommended)
+  # device: "cpu"   -> force CPU training
+  # device: "cuda:0"-> force first GPU; raises a clear error if CUDA is unavailable
+  device: auto
+  epoch_num: 15
+  batch_size: 64
+  lr: 0.001
+
+export:
+  to_onnx: True
+  onnx_model_name: lfnet.onnx

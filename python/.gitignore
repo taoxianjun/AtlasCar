@@ -1,0 +1,21 @@
+# 云端接入配置含真实设备密钥，禁止提交进 git
+cloud_config.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 采集数据 / 权重 / 日志
+capture/
+dataset/
+logs/
+*.log
+weights/*.om
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store

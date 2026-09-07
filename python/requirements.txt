@@ -1,0 +1,6 @@
+pyserial
+filelock
+numpy
+opencv-python
+torch
+paho-mqtt

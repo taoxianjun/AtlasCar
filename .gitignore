@@ -1,0 +1,53 @@
+# ============================================================
+# AtlasCar 根 .gitignore
+# 策略：只提交「代码 + 文档」，数据集 / 模型权重 / 日志 / 密钥 一律排除
+# 生成时间：2026-09-07
+# ============================================================
+
+# ---------- 密钥 & 云端配置（含真实设备 ID / 密码，绝不能提交）----------
+cloud_config.json
+**/cloud_config.json
+secrets.json
+*.key
+*.pem
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
+
+# ---------- 模型权重 / 训练导出产物 ----------
+*.om
+*.pth
+*.onnx
+Lane-Follow-Train/output/
+
+# ---------- 数据集 / 采集数据（体积大头）----------
+data/images/
+auto_label_tool/data/
+auto_label_tool/dataset-*/
+auto_label_tool/hsv-data/
+auto_label_tool/qc_output/
+Lane-Follow-Train/dataset/
+python/capture/
+python/logs/
+
+# ---------- 日志 ----------
+*.log
+
+# ---------- 编辑器 / 系统 ----------
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# ---------- 超大原始截图（各 9.6MB，未被 md 引用，需要可自行恢复）----------
+基于ESP32的智能小车控制/image/image-20221220182643963.png
+基于ESP32的智能小车控制/image/image-20221220182648920.png
+基于ESP32的智能小车控制/image/image-20221220182720952.png
+基于ESP32的智能小车控制/image/image-20221220183005811.png

@@ -1,0 +1,30 @@
+# 智能小车云端控制开机自启服务
+#
+# 部署（在开发者套件上执行）：
+#   cp /home/car/python/deploy/car-cloud.service /etc/systemd/system/
+#   systemctl daemon-reload
+#   systemctl enable --now car-cloud
+# 查看日志：
+#   journalctl -u car-cloud -f
+
+[Unit]
+Description=Smart Car Cloud (IoTDA MQTT) Control
+# 等网络就绪再启动，否则首次连接会一直重试
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/car/python
+Environment=PYTHONUNBUFFERED=1
+# 密钥建议放在这里或 /etc/car-cloud.env，不要提交进代码仓库
+# Environment=IOT_DEVICE_ID=xxx
+# Environment=IOT_DEVICE_SECRET=xxx
+EnvironmentFile=-/etc/car-cloud.env
+ExecStart=/usr/bin/python3 /home/car/python/main.py --mode mqtt
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
